@@ -5,23 +5,31 @@ import * as headerStyles from "./header.module.scss"
 
 function Header() {
   return (
-    <header>
-      <h1>my website</h1>
+    <header className={headerStyles.header}>
+      <Link className={headerStyles.title} to="/">
+        <h1>my website</h1>
+      </Link>
       <nav>
-        <ul>
+        <ul className={headerStyles.navList}>
           <li>
-            <Link className={headerStyles.link} to="/about">
+            <Link className={headerStyles.navItem} to="/about">
               about
             </Link>
           </li>
           <li>
-            <Link to="/contact">contact</Link>
+            <Link className={headerStyles.navItem} to="/contact">
+              contact
+            </Link>
           </li>
           <li>
-            <Link to="/blog">blog</Link>
+            <Link className={headerStyles.navItem} to="/blog">
+              blog
+            </Link>
           </li>
           <li>
-            <Link to="/">home</Link>
+            <Link className={headerStyles.navItem} to="/">
+              home
+            </Link>
           </li>
         </ul>
       </nav>
