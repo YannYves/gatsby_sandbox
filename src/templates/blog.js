@@ -1,7 +1,8 @@
 import { graphql } from "gatsby"
 import React from "react"
 import Layout from "../components/layout"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { renderRichText } from "gatsby-source-contentful/rich-text"
+import Head from "../components/head"
 
 export const query = graphql`
   query ($slug: String!) {
@@ -10,6 +11,16 @@ export const query = graphql`
       publishedDate(formatString: "MMMM Do, YYYY")
       body {
         raw
+        references {
+          ... on ContentfulAsset {
+            contentful_id
+            __typename
+            file {
+              url
+              fileName
+            }
+          }
+        }
       }
     }
   }
@@ -17,14 +28,19 @@ export const query = graphql`
 
 // TODO refacto this weird stuff below
 
-const Blog = props => {
+const Blog = ({ data }) => {
   const options = {
     renderNode: {
       "embedded-asset-block": node => {
-        console.log(node, "node")
         return (
           <>
-            <img src={node.data.target.src} alt={node.data.target.title} />
+            <pre>
+              <code>{JSON.stringify(node, null, 2)}</code>
+            </pre>
+            <img
+              src={node.data.target.file.url}
+              alt={node.data.target.file.fileName}
+            />
           </>
         )
       },
@@ -33,12 +49,11 @@ const Blog = props => {
 
   return (
     <Layout>
-      <h1>{props.data.contentfulBlogPost.title}</h1>
-      <p>{props.data.contentfulBlogPost.publishedDate}</p>
-      {documentToReactComponents(
-        JSON.parse(props.data.contentfulBlogPost.body.raw),
-        options
-      )}
+      <Head title={data.contentfulBlogPost.title} />
+      <h1>{data.contentfulBlogPost.title}</h1>
+      <p>{data.contentfulBlogPost.publishedDate}</p>
+      {data.contentfulBlogPost.body &&
+        renderRichText(data.contentfulBlogPost.body, options)}
     </Layout>
   )
 }

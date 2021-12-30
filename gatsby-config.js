@@ -11,6 +11,7 @@ module.exports = {
     author: "David Linch",
   },
   plugins: [
+    "gatsby-plugin-react-helmet",
     "gatsby-plugin-sass",
     {
       resolve: "gatsby-source-filesystem",
