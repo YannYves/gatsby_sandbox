@@ -7,7 +7,7 @@ const IndexPage = () => {
     <Layout>
       <Head title="Home" />
       <h1>Hello there ! </h1>
-      <h2> I am leraning some Jamstack skills </h2>
+      <h2> I am learning some Jamstack skills </h2>
       <p>Need a dev ? </p>
       <Link to="/contact"> Contact me</Link>
     </Layout>
