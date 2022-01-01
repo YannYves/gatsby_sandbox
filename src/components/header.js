@@ -26,7 +26,7 @@ function Header() {
               activeClassName={headerStyles.activeNavItem}
               to="/about"
             >
-              about
+              About
             </Link>
           </li>
           <li>
@@ -35,7 +35,7 @@ function Header() {
               activeClassName={headerStyles.activeNavItem}
               to="/contact"
             >
-              contact
+              Contact
             </Link>
           </li>
           <li>
@@ -44,7 +44,7 @@ function Header() {
               activeClassName={headerStyles.activeNavItem}
               to="/blog"
             >
-              blog
+              Blog
             </Link>
           </li>
           <li>
@@ -53,7 +53,7 @@ function Header() {
               activeClassName={headerStyles.activeNavItem}
               to="/"
             >
-              home
+              Home
             </Link>
           </li>
         </ul>

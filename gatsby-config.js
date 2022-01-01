@@ -7,8 +7,8 @@
 module.exports = {
   /* Your site config here */
   siteMetadata: {
-    title: "Full-Stack Bootcamp",
-    author: "David Linch",
+    title: "A Gatsby powered blog",
+    author: "Yann Dubois",
   },
   plugins: [
     "gatsby-plugin-react-helmet",

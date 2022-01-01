@@ -6,8 +6,8 @@ const IndexPage = () => {
   return (
     <Layout>
       <Head title="Home" />
-      <h1>Hello</h1>
-      <h2> Something Else</h2>
+      <h1>Hello there ! </h1>
+      <h2> I am leraning some Jamstack skills </h2>
       <p>Need a dev ? </p>
       <Link to="/contact"> Contact me</Link>
     </Layout>
